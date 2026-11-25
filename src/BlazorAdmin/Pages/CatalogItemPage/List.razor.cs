@@ -17,9 +17,9 @@ public partial class List : BlazorComponent
     [Microsoft.AspNetCore.Components.Inject]
     public ICatalogLookupDataService<CatalogType> CatalogTypeService { get; set; }
 
-    private List<CatalogItem> catalogItems = new List<CatalogItem>();
-    private List<CatalogType> catalogTypes = new List<CatalogType>();
-    private List<CatalogBrand> catalogBrands = new List<CatalogBrand>();
+    private List<CatalogItem> catalogItems = new();
+    private List<CatalogType> catalogTypes = new();
+    private List<CatalogBrand> catalogBrands = new();
 
     private Edit EditComponent { get; set; }
     private Delete DeleteComponent { get; set; }
@@ -55,12 +55,7 @@ public partial class List : BlazorComponent
         await EditComponent.Open(id);
     }
 
-    private async Task DeleteClick(int id)
-    {
-        await DeleteComponent.Open(id);
-    }
-
-    private async Task ReloadCatalogItems()
+    private async Task RefreshCatalogItems()
     {
         catalogItems = await CatalogItemService.List();
         StateHasChanged();

@@ -7,14 +7,14 @@ using Microsoft.eShopWeb.Web.Pages.Basket;
 
 namespace Microsoft.eShopWeb.Web.Services;
 
-public class BasketViewModelService : IBasketViewModelService
+public class BasketViewModelBuilder : IBasketViewModelService
 {
     private readonly IRepository<Basket> _basketRepository;
     private readonly IUriComposer _uriComposer;
     private readonly IBasketQueryService _basketQueryService;
     private readonly IRepository<CatalogItem> _itemRepository;
 
-    public BasketViewModelService(IRepository<Basket> basketRepository,
+    public BasketViewModelBuilder(IRepository<Basket> basketRepository,
         IRepository<CatalogItem> itemRepository,
         IUriComposer uriComposer,
         IBasketQueryService basketQueryService)

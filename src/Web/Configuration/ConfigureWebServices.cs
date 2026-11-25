@@ -9,8 +9,8 @@ public static class ConfigureWebServices
     public static IServiceCollection AddWebServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddMediatR(cfg => 
-            cfg.RegisterServicesFromAssembly(typeof(BasketViewModelService).Assembly));
-        services.AddScoped<IBasketViewModelService, BasketViewModelService>();
+            cfg.RegisterServicesFromAssembly(typeof(BasketViewModelBuilder).Assembly));
+        services.AddScoped<IBasketViewModelService, BasketViewModelBuilder>();
         services.AddScoped<CatalogViewModelService>();
         services.AddScoped<ICatalogItemViewModelService, CatalogItemViewModelService>();
         services.Configure<CatalogSettings>(configuration);

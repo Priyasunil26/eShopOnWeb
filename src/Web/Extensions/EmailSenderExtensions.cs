@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 
-namespace Microsoft.eShopWeb.Web.Services;
+namespace Microsoft.eShopWeb.Web.Extensions;
 
 public static class EmailSenderExtensions
 {

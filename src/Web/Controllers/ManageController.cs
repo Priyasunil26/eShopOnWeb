@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using Microsoft.eShopWeb.Infrastructure.Identity;
+using Microsoft.eShopWeb.Web.Extensions;
 using Microsoft.eShopWeb.Web.Services;
 using Microsoft.eShopWeb.Web.ViewModels.Manage;
 
