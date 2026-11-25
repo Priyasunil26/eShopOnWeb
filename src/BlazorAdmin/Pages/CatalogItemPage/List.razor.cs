@@ -60,7 +60,7 @@ public partial class List : BlazorComponent
         await DeleteComponent.Open(id);
     }
 
-    private async Task ReloadCatalogItems()
+    private async Task RefreshCatalogItems()
     {
         catalogItems = await CatalogItemService.List();
         StateHasChanged();
