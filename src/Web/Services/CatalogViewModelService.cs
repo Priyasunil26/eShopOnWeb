@@ -82,15 +82,8 @@ public class CatalogViewModelService : ICatalogViewModelService
         _logger.LogInformation("GetBrands called.");
         var brands = await _brandRepository.ListAsync();
 
-        var items = brands
-            .Select(brand => new SelectListItem() { Value = brand.Id.ToString(), Text = brand.Brand })
-            .OrderBy(b => b.Text)
-            .ToList();
-
-        var allItem = new SelectListItem() { Value = null, Text = "All", Selected = true };
-        items.Insert(0, allItem);
-
-        return items;
+        return ToSelectListWithAll(brands
+            .Select(brand => new SelectListItem() { Value = brand.Id.ToString(), Text = brand.Brand }));
     }
 
     public async Task<IEnumerable<SelectListItem>> GetTypes()
@@ -98,9 +91,14 @@ public class CatalogViewModelService : ICatalogViewModelService
         _logger.LogInformation("GetTypes called.");
         var types = await _typeRepository.ListAsync();
 
-        var items = types
-            .Select(type => new SelectListItem() { Value = type.Id.ToString(), Text = type.Type })
-            .OrderBy(t => t.Text)
+        return ToSelectListWithAll(types
+            .Select(type => new SelectListItem() { Value = type.Id.ToString(), Text = type.Type }));
+    }
+
+    private static List<SelectListItem> ToSelectListWithAll(IEnumerable<SelectListItem> source)
+    {
+        var items = source
+            .OrderBy(i => i.Text)
             .ToList();
 
         var allItem = new SelectListItem() { Value = null, Text = "All", Selected = true };
