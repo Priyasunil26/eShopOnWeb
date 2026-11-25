@@ -51,7 +51,7 @@ else
                             Edit
                         </button>
 
-                        <button @onclick="@(() => DeleteClick(item.Id))" @onclick:stopPropagation="true" class="btn btn-danger">
+                        <button @onclick="@(() => DeleteComponent.Open(item.Id))" @onclick:stopPropagation="true" class="btn btn-danger">
                             Delete
                         </button>
                     </td>

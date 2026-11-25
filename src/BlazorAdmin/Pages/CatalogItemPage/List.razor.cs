@@ -55,11 +55,6 @@ public partial class List : BlazorComponent
         await EditComponent.Open(id);
     }
 
-    private async Task DeleteClick(int id)
-    {
-        await DeleteComponent.Open(id);
-    }
-
     private async Task RefreshCatalogItems()
     {
         catalogItems = await CatalogItemService.List();
